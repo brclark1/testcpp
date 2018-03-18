@@ -1,0 +1,286 @@
+CREATE Person
+{
+	id: 1,
+	first_name: 'Thomas',
+	middle_name: 'David',
+	last_name: 'Vongsamphanh',
+	date_of_birth: 2017-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:1,
+		street_number: '93',
+		street_name: 'Lincoln Avenue',
+		city: 'Harpers Ferry',
+		state: 'IA',
+		zip: 52146,
+		geo_location:
+		CREATE Location
+		{
+			latitude: +43.288601,
+			longitude: -91.209399
+		}
+	}
+};
+
+UPDATE Person WHERE id = 1 ADD CREATE Phone {id:1, phone_number: '6516417325'} TO owns;
+
+CREATE Person
+{
+	id: 2,
+	first_name: 'Charles',
+	middle_name: 'Neil',
+	last_name: 'Gallinger',
+	date_of_birth: 2017-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address{
+		id:2,
+		street_number: '41',
+		street_name: 'Walnut Street',
+		city: 'Saint Catharine',
+		state: 'KY',
+		zip: 40061,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +37.773962,
+                        longitude: -85.201068
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:2, phone_number: '2242190650'})
+	}
+};
+
+
+CREATE Person
+{
+	id: 3,
+	first_name: 'Daniel',
+	middle_name: 'Juan',
+	last_name: 'Hauben',
+	date_of_birth: 2017-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:3,
+		street_number: '110',
+		street_name: 'Oak Street',
+		city: 'Corpus Christi',
+		state: 'TX',
+		zip: 78427,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +27.777000,
+                        longitude: -97.463213
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:3, phone_number: '5078878884'}),
+		(CREATE Phone {id:4, phone_number: '4196672956'})
+	}
+};
+
+CREATE Person
+{
+	id: 4,
+	first_name: 'Benjamin',
+	middle_name: 'Robert',
+	last_name: 'Loe',
+	date_of_birth: 1997-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:4,
+		street_number: '140',
+		street_name: 'Willow Avenue',
+		city: 'Union',
+		state: 'MI',
+		zip: 49130,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +41.800617,
+                        longitude: -85.866011
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:5, phone_number: '2704575128'})
+	}
+};
+
+CREATE Person
+{
+	id: 5,
+	first_name: 'Willie',
+	middle_name: 'James',
+	last_name: 'Silva',
+	date_of_birth: 1998-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:5,
+		street_number: '160',
+		street_name: 'Highland Place',
+		city: 'Braggs',
+		state: 'OK',
+		zip: 74423,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +35.662957,
+                        longitude: -95.197780
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:6, phone_number: '5708072704'}),
+		(CREATE Phone {id:7, phone_number: '2096550524'})
+	}
+};
+
+CREATE Person
+{
+	id: 6,
+	first_name: 'Eugene',
+	middle_name: 'Michael',
+	last_name: 'Hernandez',
+	date_of_birth: 1996-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:6,
+		street_number: '160',
+		street_name: 'Park Place',
+		city: 'Frenchglen',
+		state: 'OR',
+		zip: 97736,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +43.562030,
+                        longitude: -119.078609
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:8, phone_number: '7082641995'})
+	}
+};
+
+CREATE Person
+{
+	id: 7,
+	first_name: 'Rodney',
+	middle_name: 'Laurence',
+	last_name: 'Johnson',
+	date_of_birth: 1995-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:7,
+		street_number: '22',
+		street_name: 'Madison Place',
+		city: 'Denver',
+		state: 'CO',
+		zip: 80274,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +39.743934,
+                        longitude: -104.987577
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:9, phone_number: '6605868262'})
+	}
+};
+
+CREATE Person
+{
+	id: 8,
+	first_name: 'Dorian',
+	middle_name: 'Manuel',
+	last_name: 'Stych',
+	date_of_birth: 1994-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:8,
+		street_number: '180',
+		street_name: 'Davis Court',
+		city: 'Nashua',
+		state: 'MT',
+		zip: 59248,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +48.216068,
+                        longitude: -106.320808
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:10, phone_number: '7704579542'}),
+		(CREATE Phone {id:11, phone_number: '3129904832'})
+	}
+};
+
+CREATE Person
+{
+	id: 9,
+	first_name: 'Joseph',
+	middle_name: 'Timothy',
+	last_name: 'Lueckenbach',
+	date_of_birth: 1993-3-3,
+	sex: 'M',
+	lives_at:
+	CREATE Address
+	{
+		id:9,
+		street_number: '120',
+		street_name: 'Birch Place',
+		city: 'Corpus Christi',
+		state: 'TX',
+		zip: 78465,
+		geo_location:
+                CREATE Location
+                {
+                        latitude: +27.777000,
+                        longitude: -97.463213
+                }
+	},
+	owns: List
+	{
+		(CREATE Phone {id:12, phone_number: '5401931120'}),
+		(CREATE Phone {id:13, phone_number: '2606996491'})
+	}
+};
+
+CREATE PhoneCall { from_phone: 3-3-1-15, to_phone: 3-3-1-29}; 
+CREATE PhoneCall { from_phone: 3-3-1-29, to_phone: 3-3-1-15}; 
+CREATE PhoneCall { from_phone: 3-3-1-43, to_phone: 3-3-1-15}; 
+CREATE PhoneCall { from_phone: 3-3-1-29, to_phone: 3-3-1-43}; 
+CREATE PhoneCall { from_phone: 3-3-1-43, to_phone: 3-3-1-45}; 
+CREATE PhoneCall { from_phone: 3-3-1-45, to_phone: 3-3-1-59}; 
+CREATE PhoneCall { from_phone: 3-3-1-59, to_phone: 3-3-1-73}; 
+CREATE PhoneCall { from_phone: 3-3-1-73, to_phone: 3-3-1-75}; 
+CREATE PhoneCall { from_phone: 3-3-1-75, to_phone: 3-3-1-89}; 
+CREATE PhoneCall { from_phone: 3-3-1-89, to_phone: 3-3-1-103}; 
+CREATE PhoneCall { from_phone: 3-3-1-103, to_phone: 3-3-1-117}; 
+CREATE PhoneCall { from_phone: 3-3-1-117, to_phone: 3-3-1-119}; 
+CREATE PhoneCall { from_phone: 3-3-1-119, to_phone: 3-3-1-133}; 
+CREATE PhoneCall { from_phone: 3-3-1-133, to_phone: 3-3-1-135}; 

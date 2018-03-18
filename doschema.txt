@@ -1,0 +1,53 @@
+UPDATE SCHEMA
+{
+	CREATE CLASS Address 
+	{
+			id:            Integer {Encoding: Unsigned}, 
+			street_number: String,
+      			street_name:   String,
+			city:          String,
+			state:         String,
+			zip:           Integer {Encoding: Unsigned},
+			geo_location:  Reference {Referenced: Location},
+      			owner:         Reference {Referenced: Person, inverse: lives_at}
+	}
+
+	CREATE CLASS Person
+	{
+			id:            Integer {Encoding: Unsigned},
+			first_name:    String,
+			middle_name:   String,
+			last_name:     String,
+			date_of_birth: Date,
+			sex:           String,
+			lives_at:      Reference {Referenced: Address},
+			owns:          List {Element: Reference{Referenced: Phone, inverse: owner}}
+	}
+
+	CREATE CLASS Phone
+	{
+			id:            Integer {Encoding: Unsigned},
+			phone_number:  String,
+			owner:         Reference {Referenced: Person, inverse: owns},
+			calls_from:    List {Element: Reference{Referenced: PhoneCall, inverse: from_phone}},
+			calls_to:      List {Element: Reference{Referenced: PhoneCall, inverse: to_phone}}
+	}
+
+	CREATE CLASS PhoneCall
+	{
+			from_number:   String,
+			to_number:     String,
+			call_time:     DateTime,
+			call_duration: Integer {Encoding: Unsigned},
+			from_phone:    Reference{Referenced: Phone, inverse: calls_from},
+			to_phone:      Reference{Referenced: Phone, inverse: calls_to},
+			from_location: Reference{Referenced: Location},
+			to_location:   Reference{Referenced: Location}
+	}
+
+	CREATE CLASS Location
+	{
+			latitude:      Real,
+			longitude:     Real
+	}
+};
