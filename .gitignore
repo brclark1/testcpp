@@ -1,3 +1,5 @@
+x64/Release/
+testcpp.sdf
 /Debug/
 Release/.gitignore
 Release/src/Run.d
