@@ -1,0 +1,13 @@
+/Debug/
+Release/.gitignore
+Release/src/Run.d
+Release/src/Run.o
+Release/src/testcppcreate.d
+Release/src/testcppcreate.o
+Release/src/testcppmain.d
+Release/src/testcppmain.o
+Release/src/testcppquery.d
+Release/src/testcppquery.o
+Release/testcpp
+data/
+

@@ -1,37 +1,26 @@
 //============================================================================
-// Name        : testcpp.cpp
+// Name        : testcppquery.cpp
 // Author      : 
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : Run query C++, Ansi-style
 //============================================================================
 
 #include <iostream>
 using namespace std;
 
-#include <ooObjy.h>						//	for ooObjy
-#include <objy/db/Connection.h>			//	for Connection
 #include <objy/db/Transaction.h>		//	for Transaction
 #include <objy/Exception.h>				//	for exceptions
 #include <objy/data/Data.h>
 #include <objy/statement/Statement.h>
 
+#include "Run.h"
+
 //	needs the following Objectivity libraries - oo, SessionManager, Configuration, Data, Util, Statement, Error, Policy
 
-int main() {
+int Run::testcppquery() {
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-
-	ooObjy::startup();
-	cout << "ooObjy::startup()" <<  endl;
-
-	string _connectionString("data/testfd.boot");
-	objy::db::Connection* _connection;
-
-	_connection = objy::db::Connection::connect(_connectionString.c_str(), true, 0, false);
-	cout << "objy::db::Connection::connect(_connectionString.c_str(), true, 0, false)" << endl;
-
-	cout << "_connection->getBootFile() = " << _connection->getBootFile() << endl;
+	cout << ">>>> Enter Run::testcppquery()" << endl;
 
 	try {
 		objy::db::Transaction* transaction = new objy::db::Transaction(objy::db::OpenMode::ReadOnly, "read");
@@ -102,10 +91,7 @@ int main() {
 		cerr << "error2.2: " << e.what() << endl;
 	}
 
-	ooObjy::shutdown();
-	cout << "ooObjy::shutdown()" << endl;
-
-	cout << "!!!GoodBye World!!!" << endl; // prints !!!Hello World!!!
+	cout << "<<<< Exit Run::testcppquery()" << endl;
 
 	return 0;
 }
