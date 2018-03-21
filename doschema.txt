@@ -20,7 +20,7 @@ UPDATE SCHEMA
 			last_name:     String,
 			date_of_birth: Date,
 			sex:           String,
-			lives_at:      Reference {Referenced: Address},
+			lives_at:      Reference {Referenced: Address, inverse: owner},
 			owns:          List {Element: Reference{Referenced: Phone, inverse: owner}}
 	}
 

@@ -7,7 +7,7 @@
 
 #include <ooObjy.h>
 
-#include "Run.h"
+#include "run/Run.h"
 
 using namespace std;
 
@@ -29,7 +29,7 @@ int main(int argc,char** argv)
 
 			run->initialize();
 
-			run->testcppquery();
+			run->testcppcreate();
 
 			run->shutdown();
 		}

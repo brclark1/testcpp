@@ -14,7 +14,7 @@ using namespace std;
 #include <objy/data/Data.h>
 #include <objy/statement/Statement.h>
 
-#include "Run.h"
+#include "run/Run.h"
 
 //	needs the following Objectivity libraries - oo, SessionManager, Configuration, Data, Util, Statement, Error, Policy
 
