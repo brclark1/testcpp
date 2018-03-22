@@ -29,7 +29,9 @@ int main(int argc,char** argv)
 
 			run->initialize();
 
+			run->testcppschema();
 			run->testcppcreate();
+			run->testcppquery();
 
 			run->shutdown();
 		}

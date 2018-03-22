@@ -12,9 +12,6 @@ Run::Run()
 
 }
 
-const char* dbName = "TestDB";
-const char* contName = "TestCont";
-
 int Run::initialize()
 {
 	try

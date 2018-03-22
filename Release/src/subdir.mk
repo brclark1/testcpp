@@ -6,17 +6,20 @@
 CPP_SRCS += \
 ../src/testcppcreate.cpp \
 ../src/testcppmain.cpp \
-../src/testcppquery.cpp 
+../src/testcppquery.cpp \
+../src/testcppschema.cpp 
 
 OBJS += \
 ./src/testcppcreate.o \
 ./src/testcppmain.o \
-./src/testcppquery.o 
+./src/testcppquery.o \
+./src/testcppschema.o 
 
 CPP_DEPS += \
 ./src/testcppcreate.d \
 ./src/testcppmain.d \
-./src/testcppquery.d 
+./src/testcppquery.d \
+./src/testcppschema.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -35,13 +35,13 @@ fi
 
 objy createFD -fdName ${FDNAME} -fddirp ${DB_DIR}
 
-objy do -infile ./doschema.txt -bootfile ${BOOTFILE}
+#objy do -infile ./doschema.txt -bootfile ${BOOTFILE}
 
-objy do -infile ./docreate.txt -bootfile ${BOOTFILE}
+#objy do -infile ./docreate.txt -bootfile ${BOOTFILE}
 
-objy do -infile ./doquery.txt -outfile doqueryresults.txt -bootfile ${BOOTFILE}
+#objy do -infile ./doquery.txt -outfile doqueryresults.txt -bootfile ${BOOTFILE}
 
-echo "*******************************************************************"
-echo "please see file doqueryresults.txt in this folder for query results output"
-echo "*******************************************************************"
+#echo "*******************************************************************"
+#echo "please see file doqueryresults.txt in this folder for query results output"
+#echo "*******************************************************************"
 
