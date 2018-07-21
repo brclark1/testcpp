@@ -30,7 +30,7 @@ int main(int argc,char** argv)
 			run->initialize();
 
 			run->testcppschema();
-			run->testcppcreate();
+			run->testcppcreateall();
 			run->testcppquery();
 
 			run->shutdown();

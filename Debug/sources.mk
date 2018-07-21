@@ -23,5 +23,8 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+src/objy \
+src/run \
 src \
+x64/Release \
 

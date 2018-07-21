@@ -8,6 +8,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include x64/Release/subdir.mk
+-include src/run/subdir.mk
+-include src/objy/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -44,7 +47,7 @@ all: testcpp
 testcpp: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/brian/ThingSpan/15.6/lib -o "testcpp" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/opt/ThingSpan/15.7/lib -o "testcpp" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -loo.12.6 -looSessionManager.12.6 -looConfiguration.12.6 -looData.12.6 -looUtil.12.6 -looStatement.12.6 -looError.12.6 -looPolicy.12.6
+LIBS := -loo.12.7 -looSessionManager.12.7 -looConfiguration.12.7 -looData.12.7 -looUtil.12.7 -looStatement.12.7 -looError.12.7 -looPolicy.12.7
 

@@ -4,20 +4,32 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/testcpp.cpp 
+../src/testcppcreate.cpp \
+../src/testcppcreateall.cpp \
+../src/testcppmain.cpp \
+../src/testcppquery.cpp \
+../src/testcppschema.cpp 
 
 OBJS += \
-./src/testcpp.o 
+./src/testcppcreate.o \
+./src/testcppcreateall.o \
+./src/testcppmain.o \
+./src/testcppquery.o \
+./src/testcppschema.o 
 
 CPP_DEPS += \
-./src/testcpp.d 
+./src/testcppcreate.d \
+./src/testcppcreateall.d \
+./src/testcppmain.d \
+./src/testcppquery.d \
+./src/testcppschema.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -std=c++0x -I/home/brian/ThingSpan/15.6/include -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -I/opt/ThingSpan/15.7/include -includeooObjy.h -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -std=c++11 -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

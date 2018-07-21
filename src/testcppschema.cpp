@@ -1,12 +1,13 @@
 //============================================================================
 // Name        : testcppschema.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Run query C++, Ansi-style
 //============================================================================
 
 #include <iostream>
+#include <cstdint>
 using namespace std;
 
 
@@ -48,22 +49,22 @@ int Run::testcppschema() {
 			cout << "ClassBuilder addressClassBuilder (AddressClassName);" << endl;
 
 			addressClassBuilder.setSuperclass(superClassName);
-			addressClassBuilder.addAttribute<objy::int_32>(AddressIdAttr);
+			addressClassBuilder.addAttribute<std::int32_t>(AddressIdAttr);
 			addressClassBuilder.addAttribute<objy::data::Utf8String>(AddressStreetNumberAttr);
 			addressClassBuilder.addAttribute<objy::data::Utf8String>(AddressStreetNameAttr);
 			addressClassBuilder.addAttribute<objy::data::Utf8String>(AddressCityAttr);
 			addressClassBuilder.addAttribute<objy::data::Utf8String>(AddressStateAttr);
-			addressClassBuilder.addAttribute<objy::int_32>(AddressZipAttr);
+			addressClassBuilder.addAttribute<std::int32_t>(AddressZipAttr);
 
 			DataSpecificationHandle geo_locationRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(LocationClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.build();
 			addressClassBuilder.addAttribute(AddressGeoLocationAttr, geo_locationRef);
 
 			DataSpecificationHandle ownerRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(PersonClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.setInverseAttribute(PersonLivesAtAttr)
 								.build();
 			addressClassBuilder.addAttribute(AddressOwnerAttr, ownerRef);
@@ -82,8 +83,8 @@ int Run::testcppschema() {
 
 			locationClassBuilder.setSuperclass(superClassName);
 
-			locationClassBuilder.addAttribute<objy::float_64>(LocationLatitudeAttr);
-			locationClassBuilder.addAttribute<objy::float_64>(LocationLongitudeAttr);
+			locationClassBuilder.addAttribute<std::float64_t>(LocationLatitudeAttr);
+			locationClassBuilder.addAttribute<std::float64_t>(LocationLongitudeAttr);
 
 			locationClass = locationClassBuilder.build();
 			cout << "locationClass = locationClassBuilder.build()" << endl;
@@ -98,7 +99,7 @@ int Run::testcppschema() {
 			cout << "ClassBuilder personClassBuilder (PersonClassName);" << endl;
 
 			personClassBuilder.setSuperclass(superClassName);
-			personClassBuilder.addAttribute<objy::int_32>(PersonIdAttr);
+			personClassBuilder.addAttribute<std::int32_t>(PersonIdAttr);
 			personClassBuilder.addAttribute<objy::data::Utf8String>(PersonFirstNameAttr);
 			personClassBuilder.addAttribute<objy::data::Utf8String>(PersonMiddleNameAttr);
 			personClassBuilder.addAttribute<objy::data::Utf8String>(PersonLastNameAttr);
@@ -107,7 +108,7 @@ int Run::testcppschema() {
 
 			DataSpecificationHandle lives_atRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(AddressClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.setInverseAttribute(AddressOwnerAttr)
 								.build();
 			personClassBuilder.addAttribute(PersonLivesAtAttr, lives_atRef);
@@ -115,7 +116,7 @@ int Run::testcppschema() {
 
 			DataSpecificationHandle ownsRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(PhoneClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.setInverseAttribute(PhoneOwnerAttr)
 								.build();
 			DataSpecificationHandle ownsRefList = DataSpecificationBuilder<LogicalType::List>()
@@ -137,19 +138,19 @@ int Run::testcppschema() {
 			cout << "ClassBuilder phoneClassBuilder (PhoneClassName);" << endl;
 
 			phoneClassBuilder.setSuperclass(superClassName);
-			phoneClassBuilder.addAttribute<objy::int_32>(PhoneIdAttr);
+			phoneClassBuilder.addAttribute<std::int32_t>(PhoneIdAttr);
 			phoneClassBuilder.addAttribute<objy::data::Utf8String>(PhonePhoneNumberAttr);
 
 			DataSpecificationHandle phoneOwnerRef = DataSpecificationBuilder<LogicalType::Reference>()
 										.setReferencedClass(PersonClassName)
-										.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+										.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 										.setInverseAttribute(PersonOwnsAttr)
 										.build();
 			phoneClassBuilder.addAttribute(PhoneOwnerAttr, phoneOwnerRef);
 
 			DataSpecificationHandle callsFromRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(PhoneCallClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.setInverseAttribute(PhoneCallFromPhoneAttr)
 								.build();
 			DataSpecificationHandle callsFromRefList = DataSpecificationBuilder<LogicalType::List>()
@@ -159,7 +160,7 @@ int Run::testcppschema() {
 
 			DataSpecificationHandle callsToRef = DataSpecificationBuilder<LogicalType::Reference>()
 								.setReferencedClass(PhoneCallClassName)
-								.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+								.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 								.setInverseAttribute(PhoneCallToPhoneAttr)
 								.build();
 			DataSpecificationHandle callsToRefList = DataSpecificationBuilder<LogicalType::List>()
@@ -184,31 +185,31 @@ int Run::testcppschema() {
 			phoneCallClassBuilder.addAttribute<objy::data::Utf8String>(PhoneCallFromNumberAttr);
 			phoneCallClassBuilder.addAttribute<objy::data::Utf8String>(PhoneCallToNumberAttr);
 			phoneCallClassBuilder.addAttribute<objy::data::Date>(PhoneCallCallTimeAttr);
-			phoneCallClassBuilder.addAttribute<objy::int_32>(PhoneCallCallDurationAttr);
+			phoneCallClassBuilder.addAttribute<std::int32_t>(PhoneCallCallDurationAttr);
 
 			DataSpecificationHandle fromPhoneRef = DataSpecificationBuilder<LogicalType::Reference>()
 							.setReferencedClass(PhoneClassName)
-							.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+							.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 							.setInverseAttribute(PhoneCallsFromAttr)
 							.build();
 			phoneCallClassBuilder.addAttribute(PhoneCallFromPhoneAttr, fromPhoneRef);
 
 			DataSpecificationHandle toPhoneRef = DataSpecificationBuilder<LogicalType::Reference>()
 							.setReferencedClass(PhoneClassName)
-							.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+							.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 							.setInverseAttribute(PhoneCallsToAttr)
 							.build();
 			phoneCallClassBuilder.addAttribute(PhoneCallToPhoneAttr, toPhoneRef);
 
 			DataSpecificationHandle fromLocationRef = DataSpecificationBuilder<LogicalType::Reference>()
 													.setReferencedClass(LocationClassName)
-													.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+													.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 													.build();
 			phoneCallClassBuilder.addAttribute(PhoneCallFromLocationAttr, fromLocationRef);
 
 			DataSpecificationHandle toLocationRef = DataSpecificationBuilder<LogicalType::Reference>()
 																.setReferencedClass(LocationClassName)
-																.setIdentifierSpecification(SpecificationFor<objy::uint_64>::get())
+																.setIdentifierSpecification(SpecificationFor<std::uint64_t>::get())
 																.build();
 			phoneCallClassBuilder.addAttribute(PhoneCallToLocationAttr, toLocationRef);
 

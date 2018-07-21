@@ -9,6 +9,7 @@ public:
 	int shutdown();			//	shutdown Objy
 	int testcppquery();		//	run queries
 	int testcppcreate();	//	create data
+	int testcppcreateall();	//	create data lots
 	int testcppschema();	//	define schema
 
 private:
