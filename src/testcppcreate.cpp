@@ -122,14 +122,14 @@ int Run::testcppcreate() {
 			objyAccess.createPhoneCall("3129904832", "5401931120", objy::data::DateTime(2017-5-5), 100, phone[10], phone[11], location, location);
 			objyAccess.createPhoneCall("5401931120", "2606996491", objy::data::DateTime(2017-5-5), 100, phone[11], phone[12], location, location);
 
-		} catch (objy::UserException& e) {
+		} catch (objy::Exception& e) {
 			cerr << "error1.1: " << e.what() << endl;
 		}
 
 		transaction->commit();
 		cout << "transaction->commit()" << endl;
 
-		transaction->release();
+		transaction->removeRef();
 		cout << "transaction->release()" << endl;
 
 	} catch (ooKernelException& e) {

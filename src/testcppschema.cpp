@@ -219,14 +219,14 @@ int Run::testcppschema() {
 			provider->represent(phoneCallClass);
 			cout << "provider->represent(phoneCallClass)" << endl;
 
-		} catch (UserException& e) {
+		} catch (Exception& e) {
 			cerr << "error1.1: " << e.what() << endl;
 		}
 
 		transaction->commit();
 		cout << "transaction->commit()" << endl;
 
-		transaction->release();
+		transaction->removeRef();
 		cout << "transaction->release()" << endl;
 
 	} catch (ooKernelException& e) {

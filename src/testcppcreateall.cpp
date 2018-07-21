@@ -18,9 +18,9 @@ using namespace std;
 
 //	needs the following Objectivity libraries - oo, SessionManager, Configuration, Data, Util, Statement, Error, Policy
 
-int Run::testcppcreate() {
+int Run::testcppcreateall() {
 
-	cout << ">>>> Enter Run::testcppcreate()" << endl;
+	cout << ">>>> Enter Run::testcppcreateall()" << endl;
 
 	try {
 		objy::db::Transaction* transaction = new objy::db::Transaction(objy::db::OpenMode::Update,"Update");
@@ -48,14 +48,14 @@ int Run::testcppcreate() {
 				phone1 = phone2;
 			}
 
-		} catch (objy::UserException& e) {
+		} catch (objy::Exception& e) {
 			cerr << "error1.1: " << e.what() << endl;
 		}
 
 		transaction->commit();
 		cout << "transaction->commit()" << endl;
 
-		transaction->release();
+		transaction->removeRef();
 		cout << "transaction->release()" << endl;
 
 	} catch (ooKernelException& e) {
@@ -64,7 +64,7 @@ int Run::testcppcreate() {
 		cerr << "error2.2: " << e.what() << endl;
 	}
 
-	cout << "<<<< Exit Run::testcppcreate()" << endl;
+	cout << "<<<< Exit Run::testcppcreateall()" << endl;
 
 	return 0;
 }

@@ -75,14 +75,14 @@ int Run::testcppquery() {
 				results.toJSON(os);
 				cout << "Query results: " << os.str() << endl;
 			}
-		} catch (objy::UserException& e) {
+		} catch (objy::Exception& e) {
 			cerr << "error1.1: %s\n" << e.what() << endl;
 		}
 
 		transaction->commit();
 		cout << "transaction->commit()" << endl;
 
-		transaction->release();
+		transaction->removeRef();
 		cout << "transaction->release()" << endl;
 
 	} catch (ooKernelException& e) {
